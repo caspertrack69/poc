@@ -36,6 +36,24 @@ const tocItems = [
 ];
 
 export default function PanduanPage() {
+  const summaryCards = [
+    {
+      icon: <Clock size={16} strokeWidth={1.5} />,
+      label: "Persiapan",
+      value: guideSummary.preparationTime,
+    },
+    {
+      icon: <CalendarClock size={16} strokeWidth={1.5} />,
+      label: "Fermentasi",
+      value: guideSummary.fermentationDuration,
+    },
+    {
+      icon: <Beaker size={16} strokeWidth={1.5} />,
+      label: "Hasil",
+      value: guideSummary.yieldEstimate,
+    },
+  ];
+
   return (
     <article>
       <PageContainer className="pt-[120px] flex flex-col items-center text-center">
@@ -44,19 +62,19 @@ export default function PanduanPage() {
         <p className="type-body mt-4 max-w-[520px] text-ink-muted">
           Ikuti lima tahapan ini secara berurutan untuk membuat Pupuk Organik Cair yang aman dan layak pakai.
         </p>
-        <dl className="mt-10 grid grid-cols-1 tablet:grid-cols-3 gap-4 w-full max-w-[760px]">
-          <div className="rounded-card border border-line-subtle bg-raised/40 p-4 text-center">
-            <dt className="type-meta text-ink-subtle">Persiapan</dt>
-            <dd className="mt-2 type-card-title text-ink">{guideSummary.preparationTime}</dd>
-          </div>
-          <div className="rounded-card border border-line-subtle bg-raised/40 p-4 text-center">
-            <dt className="type-meta text-ink-subtle">Fermentasi</dt>
-            <dd className="mt-2 type-card-title text-ink">{guideSummary.fermentationDuration}</dd>
-          </div>
-          <div className="rounded-card border border-line-subtle bg-raised/40 p-4 text-center">
-            <dt className="type-meta text-ink-subtle">Hasil</dt>
-            <dd className="mt-2 type-card-title text-ink">{guideSummary.yieldEstimate}</dd>
-          </div>
+        <dl className="mt-10 grid grid-cols-1 tablet:grid-cols-3 gap-4 w-full max-w-[820px] items-stretch">
+          {summaryCards.map((c) => (
+            <div
+              key={c.label}
+              className="flex flex-col rounded-card border border-line-subtle bg-raised/40 p-5 text-left transition-colors duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:border-line-violet hover:bg-raised/60"
+            >
+              <dt className="flex items-center gap-2 type-meta text-ink-subtle">
+                <span className="text-violet-400" aria-hidden="true">{c.icon}</span>
+                <span>{c.label}</span>
+              </dt>
+              <dd className="mt-3 type-card-title text-ink">{c.value}</dd>
+            </div>
+          ))}
         </dl>
       </PageContainer>
 
@@ -144,7 +162,32 @@ export default function PanduanPage() {
 
       <BackToTop />
       <PageContainer className="mt-[80px]">
-        <PrintButton />
+        <div
+          className="relative overflow-hidden rounded-[28px] border border-line-subtle py-12 tablet:py-16 px-5 text-center print-hidden"
+          style={{ background: "var(--gradient-cta_banner_violet)" }}
+        >
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 bottom-0 h-[35%] opacity-50"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 25% 0%, rgba(255,255,255,0.06) 1px, transparent 1.5px)",
+              backgroundSize: "14px 14px",
+              maskImage: "linear-gradient(to top, black, transparent)",
+              WebkitMaskImage: "linear-gradient(to top, black, transparent)",
+            }}
+          />
+          <div className="relative z-10 flex flex-col items-center">
+            <Eyebrow>Referensi Offline</Eyebrow>
+            <h2 className="type-banner-title mt-3 max-w-[480px]">Cetak Panduan Ini</h2>
+            <p className="mt-4 type-body max-w-[440px]" style={{ color: "rgba(255,255,255,0.8)" }}>
+              Simpan panduan sebagai referensi offline saat membuat POC di dapur atau kebun.
+            </p>
+            <div className="mt-8">
+              <PrintButton />
+            </div>
+          </div>
+        </div>
       </PageContainer>
     </article>
   );

@@ -1,3 +1,5 @@
+import { ArrowLeft, ArrowRight } from "lucide-react";
+
 interface StepNavigationItem {
   href: string;
   label: string;
@@ -8,6 +10,13 @@ interface StepNavigationProps {
   nextItem?: StepNavigationItem;
 }
 
+const linkClass =
+  "group flex items-center gap-4 p-5 rounded-card border border-line-subtle hover:border-line-violet hover:bg-raised/60 transition-colors duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] focus-visible:border-line-violet";
+const arrowClass =
+  "icon-circle icon-circle-outlined w-9 h-9 transition-transform duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)]";
+const labelClass = "block type-meta text-ink-subtle";
+const valueClass = "mt-1 block type-body text-ink";
+
 /** Prev/next section anchor navigation between guide steps. */
 export function StepNavigation({ prevItem, nextItem }: StepNavigationProps) {
   return (
@@ -16,29 +25,33 @@ export function StepNavigation({ prevItem, nextItem }: StepNavigationProps) {
       className="mt-12 flex items-center justify-between gap-4"
     >
       {prevItem ? (
-        <a
-          href={prevItem.href}
-          className="flex items-center gap-3 p-4 rounded-card border border-line-subtle hover:border-line-violet transition-colors duration-[220ms]"
-        >
-          <span className="text-violet-400" aria-hidden="true">←</span>
+        <a href={prevItem.href} className={linkClass}>
+          <span
+            className={`${arrowClass} group-hover:-translate-x-[2px]`}
+            aria-hidden="true"
+          >
+            <ArrowLeft size={16} strokeWidth={1.75} />
+          </span>
           <span>
-            <span className="block type-meta text-ink-subtle">Sebelumnya</span>
-            <span className="type-body text-ink">{prevItem.label}</span>
+            <span className={labelClass}>Sebelumnya</span>
+            <span className={valueClass}>{prevItem.label}</span>
           </span>
         </a>
       ) : (
         <span aria-hidden="true" />
       )}
       {nextItem ? (
-        <a
-          href={nextItem.href}
-          className="flex items-center gap-3 p-4 rounded-card border border-line-subtle hover:border-line-violet transition-colors duration-[220ms] text-right"
-        >
+        <a href={nextItem.href} className={`${linkClass} text-right`}>
           <span className="ml-auto">
-            <span className="block type-meta text-ink-subtle">Berikutnya</span>
-            <span className="type-body text-ink">{nextItem.label}</span>
+            <span className={labelClass}>Berikutnya</span>
+            <span className={valueClass}>{nextItem.label}</span>
           </span>
-          <span className="text-violet-400" aria-hidden="true">→</span>
+          <span
+            className={`${arrowClass} group-hover:translate-x-[2px]`}
+            aria-hidden="true"
+          >
+            <ArrowRight size={16} strokeWidth={1.75} />
+          </span>
         </a>
       ) : (
         <span aria-hidden="true" />

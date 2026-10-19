@@ -1,7 +1,7 @@
 /** Site-wide configuration: brand, navigation, contact, social links. */
 export const siteConfig = {
   name: "Panduan POC",
-  tagline: "Pusat Edukasi Pembuatan Pupuk Organik Cair",
+  tagline: "Pusat Edukasi Pembuatan POC",
   description:
     "Panduan praktis pembuatan Pupuk Organik Cair (POC) dari persiapan bahan, fermentasi, hingga aplikasi yang aman dan tepat untuk tanaman.",
   url: "https://panduan-poc.example",

@@ -11,7 +11,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Beranda",
   description:
-    "Pusat edukasi pembuatan Pupuk Organik Cair (POC) — panduan, resep, dan tips praktis untuk petani dan pemula.",
+    "Pusat Edukasi Pembuatan POC (POC) — panduan, resep, dan tips praktis untuk petani dan pemula.",
   path: "/",
 });
 

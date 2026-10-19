@@ -27,11 +27,7 @@ export default function FAQPage() {
       <Section ariaLabel="Daftar FAQ">
         <PageContainer className="grid tablet:grid-cols-[350px_1fr] gap-[60px]">
           <div>
-            <h2 className="type-h2-section-title">Jawaban Cepat untuk Hal yang Sering Ditanyakan</h2>
-            <p className="mt-4 type-body text-ink-muted">
-              Topik yang paling sering muncul adalah durasi fermentasi, ciri hasil sehat, dan cara penyimpanan.
-          </p>
-          <div className="mt-10">
+            <div>
             <p className="type-h3-feature-title text-ink">Masih ada pertanyaan?</p>
               <p className="mt-2 type-meta text-ink-subtle">
                 Buka panduan lengkap untuk penjelasan menyeluruh.

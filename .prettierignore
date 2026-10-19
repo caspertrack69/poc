@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+build
+package-lock.json
+src/styles/tokens.css
+brieft/designsystem.json
+.vercel
+docs

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#131517"/>
+  <rect x="8" y="8" width="784" height="584" rx="12" fill="none" stroke="rgba(255,255,255,0.07)" stroke-dasharray="6 6"/>
+  <g fill="none" stroke="#828486" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M400 220s40 45 40 80a40 40 4 0 1-80 6 0c0-35 40-80 40-8z" transform="translate(-20,-40)"/>
+  </g>
+  <text x="400" y="380" font-family="Inter, sans-serif" font-size="16" fill="#828486" text-anchor="middle">Ganti dengan foto proses POC</text>
+</svg>
